@@ -1,39 +1,159 @@
-# Backend Developer Intern Code Test
+# Evore Be Test
 
-**Objective:** Create a URL shortener backend using Nest.js
+Backend Developer Intern Test Project
 
-## Requirements:
+## Table of Contents
 
-1. The shortened link must be unique and have an expiration of 5 years.
-2. The system should implement authentication guard with email password using jwt token for creating token.
-3. Allow the user to customize the URL with a maximum of 16 characters.
-4. The system-generated short URL should be 6 characters.
-5. The system should not have any downtime and must operate as fast as possible.
-6. The system should effectively handle thousands of requests per second for generating unique short URLs.
+- [Features](#features)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+- [Useful Commands](#useful-commands)
 
-## Instructions:
+## Features
 
-1. Provide a RESTful API to shorten a given URL.
-2. The API should return the shortened URL and its expiration date.
-3. Implement a redirection service that, when a user accesses the shortened URL, redirects to the original URL.
-4. Include rate-limiting to prevent abuse.
-5. Implement unit tests to test the functionality of your service.
-6. Document your API endpoints and include a README file with setup instructions.
-7. Document the API using Postman or Swagger.
+Primary features of this project:
 
-## Evaluation:
+- **User Authentication**: User registration, login. JWT-based authentication.
+- **Data Validation**: Input validation using class validators.
+- **API Documentation**: Swagger API documentation accessible at `/api/v1/docs`.
+- **Error Handling**: Custom error handling and informative error responses.
+- **Logging**: Application-wide request and response logging.
+- **Rate Limiting**: Protect routes from excessive requests.
 
-Your solution will be evaluated based on the following criteria:
+## Installation
 
-- Code quality and organization
-- Adherence to the project requirements
-- Use of best practices for API design and security
-- Efficiency of the implemented solution
-- Completeness of the tests and documentation
-- Use of caching mechanisms is considered a plus point
-- Using a migration file for MySQL is considered a plus point
+### Prerequisites
 
-## Submission Instructions
+- [Node.js](https://nodejs.org/) (v16 or higher recommended)
+- [NestJS CLI](https://docs.nestjs.com/) (optional, for easier development)
 
-- Clone the provided GitHub repository to your personal account. After you have completed the test, send your code to effendy@evore.id, including setup instructions for the project in the README file.
-- Ensure your submission is submitted within a maximum of 4 days after you receive the email.
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Install NestJS CLI globally (optional):
+
+   ```bash
+   npm install -g @nestjs/cli
+   ```
+
+## Configuration
+
+### Environment Variables
+
+1. Create a `.env` file in the root directory of your project.
+2. Add environment variables. Below is an example of typical variables:
+
+   ```plaintext
+   # Server
+   DOMAIN=http://localhost:3000
+
+   # Database
+   DATABASE_URL=mysql://user:password@host:3306/db_name
+
+   # JWT
+    JWT_SECRET=your-secret
+   ```
+
+3. Update these values based on your setup (e.g., database credentials).
+
+### Prisma
+
+Set up database by running:
+
+```bash
+npx prisma db push
+```
+
+## Running the Application
+
+### Development
+
+To start the application in development mode with hot reloading:
+
+```bash
+npm run start:dev
+```
+
+The application should now be running on `http://localhost:3000` by default.
+
+### Production
+
+To build and run the application in production mode:
+
+1. Build the application:
+
+   ```bash
+   npm run build
+   ```
+
+2. Start the application:
+
+   ```bash
+   npm run start:prod
+   ```
+
+### Running with Docker (Optional)
+
+If you prefer using Docker, you can build and run the app with the following commands:
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t your-image-name .
+   ```
+
+2. Run the Docker container:
+
+   ```bash
+   docker run -p 3000:3000 your-image-name
+   ```
+
+## Testing
+
+### Unit Tests
+
+Run unit tests with:
+
+```bash
+npm run test
+```
+
+### End-to-End Tests
+
+Run end-to-end tests with:
+
+```bash
+npm run test:e2e
+```
+
+### Test Coverage
+
+Generate test coverage reports:
+
+```bash
+npm run test:cov
+```
+
+## Useful Commands
+
+- **Start Development Server**: `npm run start:dev`
+- **Start Production Server**: `npm run start:prod`
+- **Lint Code**: `npm run lint`
+- **Format Code**: `npm run format`
+- **Run Unit Tests**: `npm run test`
+- **Run E2E Tests**: `npm run test:e2e`
+- **Generate Test Coverage**: `npm run test:cov`
