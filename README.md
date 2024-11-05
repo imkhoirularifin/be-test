@@ -34,8 +34,8 @@ Primary features of this project:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/your-repository.git
-   cd your-repository
+   git clone https://github.com/imkhoirularifin/be-test.git
+   cd be-test
    ```
 
 2. Install dependencies:
@@ -104,22 +104,6 @@ To build and run the application in production mode:
 
    ```bash
    npm run start:prod
-   ```
-
-### Running with Docker (Optional)
-
-If you prefer using Docker, you can build and run the app with the following commands:
-
-1. Build the Docker image:
-
-   ```bash
-   docker build -t your-image-name .
-   ```
-
-2. Run the Docker container:
-
-   ```bash
-   docker run -p 3000:3000 your-image-name
    ```
 
 ## Testing
